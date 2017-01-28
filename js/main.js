@@ -1,7 +1,7 @@
-console.log("Webpack has started");
+console.log('Webpack has started');
 
-require("../index.html");
-require("../styles/main.scss");
+require('../index.html');
+require('../styles/main.scss');
 
-require("./modules/mod1");
-require("./modules/mod2");
+require('./modules/mod1');
+require('./modules/mod2');

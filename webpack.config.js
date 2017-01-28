@@ -1,3 +1,4 @@
+"use strict";
 let debug = process.env.NODE_ENV !== 'production';
 
 let webpack = require('webpack');
@@ -11,7 +12,6 @@ module.exports = {
     filename: './js/bundle.js',
     path: path.resolve(__dirname, './')
   },
-  watch: true,
   eslint: {
     configFile: './.eslintrc'
   },
@@ -35,7 +35,7 @@ module.exports = {
         loader: 'style!css!postcss!sass'
       },
       {
-        test: /\.es6$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {

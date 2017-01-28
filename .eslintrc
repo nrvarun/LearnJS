@@ -189,7 +189,7 @@
     "space-before-function-paren": [1, {"anonymous": "always", "named": "never"}], // require or disallow space before function opening parenthesis (off by default)
     "space-in-brackets": [1, "never"], // require or disallow spaces inside brackets (off by default)
     "space-in-parens": [1, "never"], // require or disallow spaces inside parentheses (off by default)
-    "space-infix-ops": [1, "always"], // require spaces around operators
+    "space-infix-ops": [1, {"int32Hint": false}], // require spaces around operators
     "space-return-throw-case": [1, "always"], // require a space after return, throw, and case
     "space-unary-ops": [1, {"words": true, "nonwords": false}], // Require or disallow spaces before/after unary operators (words on by default, nonwords off by default)
     "spaced-line-comment": [1, "always"], // require or disallow a space immediately following the // in a line comment (off by default)
@@ -215,26 +215,6 @@
     "max-params": [2, 5], // limits the number of parameters that can be used in the function declaration. (off by default)
     "max-statements": 0, // specify the maximum number of statement allowed in a function (off by default)
     "no-bitwise": 0, // disallow use of bitwise operators (off by default)
-    "no-plusplus": 2, // disallow use of unary operators, ++ and -- (off by default)
-
-    //
-    // eslint-plugin-react
-    //
-    // React specific linting rules for ESLint
-    //
-    "react/display-name": 0, // Prevent missing displayName in a React component definition
-    "react/jsx-quotes": [2, "double", "avoid-escape"], // Enforce quote style for JSX attributes
-    "react/jsx-no-undef": 2, // Disallow undeclared variables in JSX
-    "react/jsx-sort-props": 0, // Enforce props alphabetical sorting
-    "react/jsx-uses-react": 2, // Prevent React to be incorrectly marked as unused
-    "react/jsx-uses-vars": 2, // Prevent variables used in JSX to be incorrectly marked as unused
-    "react/no-did-mount-set-state": 2, // Prevent usage of setState in componentDidMount
-    "react/no-did-update-set-state": 2, // Prevent usage of setState in componentDidUpdate
-    "react/no-multi-comp": 0, // Prevent multiple component definition per file
-    "react/no-unknown-property": 2, // Prevent usage of unknown DOM property
-    "react/prop-types": 2, // Prevent missing props validation in a React component definition
-    "react/react-in-jsx-scope": 2, // Prevent missing React when using JSX
-    "react/self-closing-comp": 2, // Prevent extra closing tags for components without children
-    "react/wrap-multilines": 2 // Prevent missing parentheses around multilines JSX
+    "no-plusplus": 2 // disallow use of unary operators, ++ and -- (off by default)
   }
 }

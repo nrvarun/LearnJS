@@ -1,6 +1,5 @@
-.active {
-    color: lightcoral;
-    font-size: 2em;
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -8,4 +7,19 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.active {
+    color: lightcoral;
+    font-size: 2em;
+    animation: popup 1000ms infinite;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(2);
+    }
 }

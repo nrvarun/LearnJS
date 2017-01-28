@@ -19,8 +19,17 @@ module.exports = {
     jshint: {
         // any jshint option http://www.jshint.com/docs/options/
         // i. e.
+        curly: true,
+        browser: true,
         camelcase: true,
-         devel: false,
+        devel: true,
+        node: true,
+        forin: true,
+
+        eqeqeq: true,
+        eqnull: true,
+        plusplus: true,
+
         // jshint errors are displayed by default as warnings
         // set emitErrors to true to display them as errors
         emitErrors: false,
@@ -29,10 +38,7 @@ module.exports = {
         // jshint to not interrupt the compilation
         // if you want any file with jshint errors to fail
         // set failOnHint to true
-        failOnHint: false,
-
-        // custom reporter function
-        reporter: function(errors) { }
+        failOnHint: false
     },
  	module: {
          preLoaders: [

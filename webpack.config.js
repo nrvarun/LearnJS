@@ -17,6 +17,11 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loader: 'style!css!postcss!sass'
+         },
+         {
+             test: /\.html$/,
+             exclude: /node_modules/,
+             loader: 'html'
          }
       ]
    },
@@ -24,5 +29,10 @@ module.exports = {
         contentBase: './',
         inline: true,
         port: 8000
-    }
+    },
+    plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ]
 };

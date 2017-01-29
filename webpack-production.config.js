@@ -54,8 +54,7 @@ module.exports = {
     new ETP('./css/style.css'),
     new CopyWebpackPlugin([
             // {output}/file.txt
-            {from: './index.html', to: './'},
-            {from: './js/bundle.js', to: './dist/js'}
+            {from: './index.html', to: './'}
     ])
   ]
 };

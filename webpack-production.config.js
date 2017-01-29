@@ -2,6 +2,7 @@
 
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let ETP = require('extract-text-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 let webpack = require('webpack');
 let path = require('path');
 
@@ -51,7 +52,19 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
+
     new ETP('./css/style.css'),
+    new HtmlWebpackPlugin({
+      title: 'Webpack playground',
+      minify: {
+        html5: true,
+        decodeEntities: true,
+        minifyCSS: true,
+        minifyJS: true
+      },
+      cache: true,
+      inject: true | 'head'
+    }),
     new CopyWebpackPlugin([
             // {output}/file.txt
             {from: './index.html', to: './'}

@@ -13,3 +13,4 @@ let add = function (a, b) {
 };
 
 console.log('sum is '+add(10, 22));
+console.log('sum is '+add(10, 42));

@@ -1,4 +1,4 @@
-console.log('Webpack has started');
+console.log('Webpack has started!');
 
 require('../index.html');
 require('../styles/main.scss');

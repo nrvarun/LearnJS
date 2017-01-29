@@ -3,12 +3,25 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+}
+.l-main {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: calc(100vh - 50px);
     flex-direction: column;
 }
-
+.c-header {
+    font-size: 1.3rem;
+    width: 100vw;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 1px 2px grey;
+}
 .active {
     margin: 0;
     color: lightcoral;

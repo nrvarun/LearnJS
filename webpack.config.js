@@ -1,6 +1,6 @@
 "use strict";
 let debug = process.env.NODE_ENV !== 'production';
-
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 let webpack = require('webpack');
 let path = require('path');
 
@@ -54,6 +54,19 @@ module.exports = {
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false})
+    new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
+    new HtmlWebpackPlugin({
+      title: 'Webpack playground',
+      template: './index.html',
+      inject: true,
+      minify: {
+        html5: true,
+        minifyCSS: true,
+        minifyJS: true,
+        decodeEntities: true,
+        collapseWhitespace: false,
+        useShortDoctype: true
+      }
+    })
   ]
 };

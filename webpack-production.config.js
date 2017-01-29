@@ -56,17 +56,18 @@ module.exports = {
     new ETP('./css/style.css'),
     new HtmlWebpackPlugin({
       title: 'Webpack playground',
+      template: './index.html',
+      inject: true,
       minify: {
         html5: true,
-        decodeEntities: true,
         minifyCSS: true,
-        minifyJS: true
-      },
-      cache: true,
-      inject: true | 'head'
+        minifyJS: true,
+        decodeEntities: true,
+        collapseWhitespace: false,
+        useShortDoctype: true
+      }
     }),
     new CopyWebpackPlugin([
-            // {output}/file.txt
             {from: './index.html', to: './'}
     ])
   ]

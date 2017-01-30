@@ -1,6 +1,5 @@
 'use strict';
 
-let CopyWebpackPlugin = require('copy-webpack-plugin');
 let ETP = require('extract-text-webpack-plugin');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let webpack = require('webpack');

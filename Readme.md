@@ -2,6 +2,7 @@
  - CSS-loader
  - Style-loader
  - PostCSS
- ## NPM tasks
+ 
+ #NPM tasks
  - Run npm run dev for development
- - Run npm run dev for production
+ - Run npm run prod for production

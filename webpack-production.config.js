@@ -54,7 +54,6 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
     new ETP('./css/style.css'),
     new HtmlWebpackPlugin({
-      title: 'Webpack playground',
       template: './index.html',
       inject: true,
       minify: {

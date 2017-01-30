@@ -1,3 +1,3 @@
 Webpack boilerplate
-- Webpack dev server
+- Webpack dev server with loaders
 - Style-loader, CSS-loader, SASS-styleloader

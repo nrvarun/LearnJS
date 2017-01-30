@@ -5,7 +5,7 @@ let path = require('path');
 
 module.exports = {
   entry: [
-    './js/main.js'
+    './app/js/main.js'
   ],
   output: {
     filename: './js/bundle.js',
@@ -47,12 +47,11 @@ module.exports = {
     extensions: ['', '.js', '.es6']
   },
   devServer: {
-    contentBase: './',
-    port: 8000
+    contentBase: './app'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './app/index.html',
       inject: true
     })
   ]

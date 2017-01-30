@@ -8,7 +8,7 @@ let path = require('path');
 
 module.exports = {
   entry: [
-    './js/main.js'
+    './app/js/main.js'
   ],
   output: {
     filename: './js/bundle.js',
@@ -43,18 +43,13 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.es6']
   },
-  devServer: {
-    contentBase: './',
-    inline: true,
-    port: 8000
-  },
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
-    new ETP('./css/style.css'),
+    new ETP('./dist/css/style.css'),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './app/index.html',
       inject: true,
       minify: {
         html5: true,
@@ -64,9 +59,6 @@ module.exports = {
         collapseWhitespace: false,
         useShortDoctype: true
       }
-    }),
-    new CopyWebpackPlugin([
-            {from: './index.html', to: './'}
-    ])
+    })
   ]
 };

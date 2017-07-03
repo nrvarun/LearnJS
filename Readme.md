@@ -1,3 +1,3 @@
-# LearnJS
+#Learn JS
 
-- Learning the Fantastic language Javascript with all its complexities and quirks.
+- Learning Javascript with all its intricasies

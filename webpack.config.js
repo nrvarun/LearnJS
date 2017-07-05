@@ -52,7 +52,8 @@ module.exports = {
     extensions: ['', '.js', '.es6']
   },
   devServer: {
-    contentBase: './src'
+    contentBase: './src',
+    open: true
   },
   plugins: [
     new HtmlWebpackPlugin({

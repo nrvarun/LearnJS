@@ -7,7 +7,7 @@ let path = require('path');
 
 module.exports = {
   entry: [
-    './app/js/main.js'
+    './src/js/main.js'
   ],
   output: {
     filename: './js/bundle.js',
@@ -20,7 +20,7 @@ module.exports = {
     loaders: [
       {
         test: /\.pug$/,
-        include: path.join(__dirname, 'app'),
+        include: path.join(__dirname, 'src'),
         loaders: ['raw-loader', 'pug-html-loader']
       },
       {
@@ -53,7 +53,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
     new ETP('./css/style.css'),
     new HtmlWebpackPlugin({
-      template: './app/index.pug',
+      template: './src/index.pug',
       filename: 'index.html',
       inject: true,
       minify: {
@@ -66,7 +66,7 @@ module.exports = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: './app/about.pug',
+      template: './src/about.pug',
       filename: 'about.html',
       inject: true,
       minify: {

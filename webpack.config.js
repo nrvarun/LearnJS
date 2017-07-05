@@ -24,9 +24,14 @@ module.exports = {
     ],
     loaders: [
       {
+        test: /\.pug$/,
+        include: path.join(__dirname, 'app'),
+        loaders: ['raw-loader', 'pug-html-loader']
+      },
+      {
         test: /\.html$/,
-        exclude: /node_modules/,
-        loader: 'html'
+        include: path.join(__dirname, 'app'),
+        loaders: ['html-loader']
       },
       {
         test: /\.scss$/,
@@ -51,8 +56,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './app/index.html',
-      inject: true
+      template: './app/index.html'
     })
   ]
 };

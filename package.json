@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot",
-    "prod": "webpack --config webpack-production.config.js -p"
+    "dev": "webpack-dev-server --hot --inline",
+    "prod": "yarn run clean && webpack --config webpack-production.config.js -p",
+    "clean": "rimraf ./dist"
   },
   "author": "",
   "license": "ISC",

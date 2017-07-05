@@ -19,6 +19,11 @@ module.exports = {
   module: {
     loaders: [
       {
+        test: /\.pug$/,
+        include: path.join(__dirname, 'app'),
+        loaders: ['raw-loader', 'pug-html-loader']
+      },
+      {
         test: /\.html$/,
         exclude: /node_modules/,
         loader: 'html'
@@ -46,9 +51,23 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
-    new ETP('./dist/css/style.css'),
+    new ETP('./css/style.css'),
     new HtmlWebpackPlugin({
-      template: './app/index.html',
+      template: './app/index.pug',
+      filename: 'index.html',
+      inject: true,
+      minify: {
+        html5: true,
+        minifyCSS: true,
+        minifyJS: true,
+        decodeEntities: true,
+        collapseWhitespace: false,
+        useShortDoctype: true
+      }
+    }),
+    new HtmlWebpackPlugin({
+      template: './app/about.pug',
+      filename: 'about.html',
       inject: true,
       minify: {
         html5: true,

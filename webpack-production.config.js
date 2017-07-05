@@ -46,7 +46,7 @@ module.exports = {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
-    new ETP('./dist/css/style.css'),
+    new ETP('./css/style.css'),
     new HtmlWebpackPlugin({
       template: './app/index.html',
       inject: true,

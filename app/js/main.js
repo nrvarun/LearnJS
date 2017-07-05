@@ -1,7 +1,15 @@
 console.log('Webpack has started!');
 
-require('../index.html');
-require('../styles/main.scss');
+require('../../app/index.html');
+// require('../../app/index.pug');
 
-require('./modules/mod1');
-require('./modules/mod2');
+require('../css/main.scss');
+// require('../css/main.css');
+
+console.warn('Modular Programming.');
+
+require('./modules/anonymClosure');
+require('./modules/globalImport');
+require('./modules/modulePattern');
+require('./modules/revealingModulePattern');
+require('./modules/commonJsModule');

@@ -29,6 +29,14 @@ module.exports = {
         loader: 'html'
       },
       {
+        test: /\.pug$/,
+        loaders: ['file-loader?name=[path][name].html&context=./app/pug', 'pug-html-loader?pretty&exports=false']
+      },
+      // { 
+      //   test: /\.css$/, 
+      //   loader: ExtractTextPlugin.extract("style-loader", "css-loader") 
+      // },
+      {
         test: /\.scss$/,
         exclude: /node_modules/,
         loader: 'style!css!postcss!sass'
@@ -47,7 +55,8 @@ module.exports = {
     extensions: ['', '.js', '.es6']
   },
   devServer: {
-    contentBase: './app'
+    contentBase: './app',
+    port: 8081
   },
   plugins: [
     new HtmlWebpackPlugin({

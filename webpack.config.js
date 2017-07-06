@@ -34,9 +34,14 @@ module.exports = {
         loaders: ['html-loader']
       },
       {
+        test: /\.(svg|png|jpe?g|gif|ttf|eot|woff|woff(2))$/,
+        exclude: path.join(__dirname, 'node_modules'),
+        loaders: ['url-loader?limit=8192']
+      },
+      {
         test: /\.scss$/,
         exclude: /node_modules/,
-        loader: 'style!css!postcss!sass'
+        loaders: ['style-loader','css-loader','resolve-url-loader','postcss-loader','sass-loader?sourceMap']
       },
       {
         test: /\.js$/,

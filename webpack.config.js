@@ -53,7 +53,8 @@ module.exports = {
   },
   devServer: {
     contentBase: './src',
-    open: true
+    open: true,
+    port: 8081
   },
   plugins: [
     new HtmlWebpackPlugin({

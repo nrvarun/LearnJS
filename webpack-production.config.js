@@ -2,6 +2,7 @@
 
 let ETP = require('extract-text-webpack-plugin');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let copyWebpackPlugin = require('copy-webpack-plugin');
 let webpack = require('webpack');
 let path = require('path');
 
@@ -16,6 +17,10 @@ module.exports = {
   eslint: {
     configFile: './.eslintrc'
   },
+  resolveUrlLoader: {
+    keepQuery: true,
+    sourceMap: true
+  },
   module: {
     loaders: [
       {
@@ -29,10 +34,28 @@ module.exports = {
         loader: 'html'
       },
       {
+        test: /\.(jpg|jpeg|gif|png|svg)$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src/img'),
+        loader: "file-loader",
+        query: {
+          name: 'img/[name].[ext]',
+          publicPath: '../'
+        }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        exclude: path.join(__dirname, 'src/img'),
+        loader: 'file-loader',
+        query: {
+          name: 'fonts/[name].[ext]',
+          publicPath: '../'
+        }
+      },
+      {
         test: /\.scss$/,
-        loader: ETP.extract(
-          'style',
-          'css!postcss!sass')
+        exclude: /node_modules/,
+        loader: ETP.extract('style-loader', 'css-loader!resolve-url-loader!postcss-loader!sass-loader?sourceMap')
       },
       {
         test: /\.js$/,
@@ -50,8 +73,14 @@ module.exports = {
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: false}),
-    new ETP('./css/style.css'),
+    new webpack.optimize.UglifyJsPlugin({mangle: false, sourcemap: true}),
+    new ETP('./css/style.css',{allChunks: true}),
+    new copyWebpackPlugin([
+           { 
+             from: './src/img',
+             to: './img'
+           }
+    ]),
     new HtmlWebpackPlugin({
       template: './src/index.pug',
       filename: 'index.html',

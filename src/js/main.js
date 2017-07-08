@@ -6,6 +6,8 @@ require('../about.pug');
 
 require('../scss/main.scss');
 
+// require('../img/tips.png');
+
 console.warn('Modular Programming.');
 
 require('./modules/anonymClosure');

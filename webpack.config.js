@@ -34,9 +34,23 @@ module.exports = {
         loaders: ['html-loader']
       },
       {
-        test: /\.(svg|png|jpe?g|gif|ttf|eot|woff|woff(2))$/,
-        exclude: path.join(__dirname, 'node_modules'),
-        loaders: ['url-loader?limit=8192']
+        test: /\.(jpg|jpeg|gif|png|svg)$/,
+        exclude: /node_modules/,
+        include: path.join(__dirname, 'src/img'),
+        loader: "file-loader",
+        query: {
+          name: 'img/[name].[ext]',
+          publicPath: '../'
+        }
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        exclude: path.join(__dirname, 'src/img'),
+        loader: 'file-loader',
+        query: {
+          name: 'fonts/[name].[ext]',
+          publicPath: '../'
+        }
       },
       {
         test: /\.scss$/,
